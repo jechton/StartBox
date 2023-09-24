@@ -1,0 +1,17 @@
+version: '3'
+services:
+
+  StartBox:
+    image: nginx
+    volumes:
+      - $HOME/.cache/StartBox/styles/colors.css:/usr/share/nginx/html/styles/colors.css # This needs to be changed depending on theme
+      - $HOME/.cache/StartBox/index.html:/usr/share/nginx/html/index.html
+      - $HOME/.cache/StartBox/styles/style.css:/usr/share/nginx/html/styles/style.css
+      - $HOME/.cache/StartBox/styles/JetBrainsMonoNerdFont-Bold.ttf:/usr/share/nginx/html/styles/JetBrainsMonoNerdFont-Bold.ttf
+      - $HOME/.cache/StartBox/styles/JetBrainsMonoNerdFont-Regular.ttf:/usr/share/nginx/html/styles/JetBrainsMonoNerdFont-Regular.ttf
+      - $HOME/.cache/StartBox/default.conf:/etc/nginx/conf.d/default.conf # modified conf to disable page caching :)
+    ports:
+    - "9876:80"
+    environment:
+    - NGINX_PORT=80
+    restart: unless-stopped

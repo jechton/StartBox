@@ -1,0 +1,18 @@
+# font_size: 22
+theme: void
+name: Johnny
+row_1:
+  general:
+    github: "https://www.github.com/"
+    monkeytype: "https://monkeytype.com"
+  reddit:
+    frontpage: 
+      - "https://www.reddit.com/"
+      - "front page"
+    unixporn: "https://www.reddit.com/r/unixporn/"
+row_2:
+  other:
+    archwiki: 
+      - "https://archlinux.org/"
+      - "arch wiki"
+    backloggd: "https://backloggd.com"
