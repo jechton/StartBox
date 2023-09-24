@@ -30,8 +30,8 @@ To re-generate the html/css after editing the config, execute `startbox.py` from
 font_size: 22 # specify font size
 theme: catppuccin # specify the name of a theme in the themes/ directory, or use 'pywal'
 name: Johnny # name for the greeting
-row_1: # each column should be named 'row_X' where X is unique for each row. you can add as many as you want, but it looks best with 2.
-  general: # Header name
+row_1: # each row should be named 'row_X' where X is unique for each row.
+  general: # Group name
     github: "https://www.github.com/" # Link-text: url
     monkeytype: "https://monkeytype.com/"
   reddit:
