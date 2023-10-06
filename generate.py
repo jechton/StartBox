@@ -46,7 +46,7 @@ def gen_list_indices(html_file, file_dict):
         else:
             html_file.write("<li><a href=\"" + value[0] + "\">" + value[1] + "</a></li>")
 
-def gen_col_headers(html_file, file_dict):
+def gen_group_headers(html_file, file_dict):
     for key in file_dict:
         html_file.write("<div>\n")
         html_file.write("<b>" + key + "</b>\n")
@@ -58,13 +58,13 @@ def gen_col_headers(html_file, file_dict):
         html_file.write("</ul>\n")
         html_file.write("</div>\n")
 
-def gen_columns(html_file, file_dict):
+def gen_groups(html_file, file_dict):
     for key in file_dict:
         if key.split("_")[0] == "row":
             html_file.write("<div class=\'flexbox\' style=\'flex-direction: row; justify-content: space-evenly; width: 100%;\'>\n")
 
-            # generate the column headers
-            gen_col_headers(html_file, file_dict[key])
+            # generate the group headers
+            gen_group_headers(html_file, file_dict[key])
 
             html_file.write("</div>\n")
 
@@ -81,11 +81,11 @@ def gen_html(file_dict):
         if key == "name":
             namekey = file_dict[key]
 
-    # copy skeleton_html to cache_html until Column Start comment, replace name variable
+    # copy skeleton_html to cache_html until Links Start comment, replace name variable
     lines = skeleton_html.readlines()
     for line in lines:
-        if "<!-- Columns start -->\n" in line:
-            gen_columns(cache_html, file_dict)
+        if "<!-- Links start -->\n" in line:
+            gen_groups(cache_html, file_dict)
         elif "{name}" in line:
             cache_html.write(line.format(name=namekey))
         else:
