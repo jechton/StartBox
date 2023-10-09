@@ -11,7 +11,7 @@ home = expanduser("~")
 
 # install script will fill this in
 # replace line
-repo_dir = "/home/bunny/Git/StartBox"
+repo_dir = home + "/Git/StartBox"
 
 # get config path
 config_dir = home + '/.config/StartBox'
@@ -61,7 +61,7 @@ def gen_group_headers(html_file, file_dict):
 def gen_groups(html_file, file_dict):
     for key in file_dict:
         if key.split("_")[0] == "row":
-            html_file.write("<div class=\'flexbox\' style=\'flex-direction: row; justify-content: space-evenly; width: 100%;\'>\n")
+            html_file.write("<div class=\'row\'>\n")
 
             # generate the group headers
             gen_group_headers(html_file, file_dict[key])
@@ -79,7 +79,7 @@ def gen_html(file_dict):
     # Get name variable
     for key in file_dict:
         if key == "name":
-            namekey = file_dict[key]
+            nameKey = file_dict[key]
 
     # copy skeleton_html to cache_html until Links Start comment, replace name variable
     lines = skeleton_html.readlines()
@@ -87,7 +87,7 @@ def gen_html(file_dict):
         if "<!-- Links start -->\n" in line:
             gen_groups(cache_html, file_dict)
         elif "{name}" in line:
-            cache_html.write(line.format(name=namekey))
+            cache_html.write(line.format(name=nameKey))
         else:
             cache_html.write(line)
 

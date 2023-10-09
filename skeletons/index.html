@@ -1,78 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <title>Home</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="./styles/style.css">
-  <title>Home</title>
-</head>
-
-<body class="flexbox" onload="startTime()">
-  <div class="container">
-    <h1 class="title">Welcome back, <span class="hl">{name}</span>.</h1>
-    <div class="flexbox">
-      <div class="flexbox" style="flex-direction: column;">
-        <div style="margin-bottom: 64px;">
-          <h1 id='clock' style='margin: 0px;'></h1>
-          <h2 id='cal'></h2>
+  <body onload="startTime()">
+    <div class="container">
+      <h1 class="title">Welcome back, <span class="hl">{name}</span>.</h1>
+      <div class="flexbox">
+        <div class="flexbox" style="flex-direction: column">
+          <div style="margin-bottom: 64px">
+            <h1 id="clock" style="margin: 0px"></h1>
+            <h2 id="cal"></h2>
+          </div>
+          <div class="cat">
+            &nbsp;／l、<br />
+            (⠁、.7<br />
+            &nbsp;&nbsp;|、 ~ヽ<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;じしf_,)ノ<br />
+          </div>
         </div>
-        <div class='cat'>
-          &nbsp;／l、<br>
-          (⠁、.7<br>
-          &nbsp;&nbsp;|、 ~ヽ<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;じしf_,)ノ<br>
-        </div>
+        <td>
+          <nav class="flexbox" style="flex-direction: column; flex-grow: 1">
+            <!-- Links start -->
+          </nav>
+        </td>
       </div>
-      <td>
-        <nav class="flexbox" style="flex-direction: column; flex-grow: 1;">
-          <!-- Links start -->
-        </nav>
-      </td>
     </div>
-  </div>
-  <script>
-
-    function startTime() {
-      const today = new Date();
-      let hour = today.getHours() % 12 || 12;
-      let minute = today.getMinutes();
-      let day = today.getDate();
-      let month = today.getMonth();
-      let year = today.getFullYear();
-      let weekDay = today.getDay();
-      let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-      let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      let daySuf = numSuf(day);
-      let ampm = today.getHours() >= 12 ? "pm" : "am";
-      minute = checkTime(minute);
-      document.getElementById('clock').innerHTML = hour + "<span class='hl'>:</span>" + minute + " " + ampm;
-      document.getElementById('cal').innerHTML = weekDays[weekDay] + ", " + daySuf + " " + months[month] + " " + year;
-      setTimeout(startTime, 1000);
-    }
-
-    function numSuf(i) {
-      if (i > 10 && i < 21) return i + 'th';
-      switch (i % 10) {
-        case 1: return i + 'st';
-        case 2: return i + 'nd';
-        case 3: return i + 'rd';
-        default: return i + 'th';
+    <script>
+      function startTime() {
+        const today = new Date();
+        let hour = today.getHours() % 12 || 12;
+        let minute = today.getMinutes();
+        let day = today.getDate();
+        let month = today.getMonth();
+        let year = today.getFullYear();
+        let weekDay = today.getDay();
+        let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        let months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        let daySuf = numSuf(day);
+        let ampm = today.getHours() >= 12 ? "pm" : "am";
+        minute = checkTime(minute);
+        document.getElementById("clock").innerHTML =
+          hour + "<span class='hl'>:</span>" + minute + " " + ampm;
+        document.getElementById("cal").innerHTML =
+          weekDays[weekDay] + ", " + daySuf + " " + months[month] + " " + year;
+        setTimeout(startTime, 1000);
       }
-    }
 
-    function checkTime(i) {
-      if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
-      return i;
-    }
+      function numSuf(i) {
+        if (i > 10 && i < 21) return i + "th";
+        switch (i % 10) {
+          case 1:
+            return i + "st";
+          case 2:
+            return i + "nd";
+          case 3:
+            return i + "rd";
+          default:
+            return i + "th";
+        }
+      }
 
-    function searchDDG() {
-      search_term = document.getElementById('search_box').value;
-      window.location.href = "https://duckduckgo.com/?q=" + encodeURI(search_term);
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        } // add zero in front of numbers < 10
+        return i;
+      }
 
-      return false;
-    }
+      function searchDDG() {
+        search_term = document.getElementById("search_box").value;
+        window.location.href =
+          "https://duckduckgo.com/?q=" + encodeURI(search_term);
 
-  </script>
-</body>
-
+        return false;
+      }
+    </script>
+  </body>
 </html>

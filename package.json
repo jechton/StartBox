@@ -1,0 +1,19 @@
+{
+  "name": "startbox",
+  "description": "A comfortable home page modified from Apro's Startpage and StartTree.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retchohrips/StartBox.git"
+  },
+  "author": "retchohrips",
+  "bugs": {
+    "url": "https://github.com/retchohrips/StartBox/issues"
+  },
+  "homepage": "https://github.com/retchohrips/StartBox#readme",
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-idiomatic-order": "^9.0.0"
+  }
+}
